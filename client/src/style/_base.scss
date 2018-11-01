@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  background-repeat: no-repeat;
+}
+
+html {
+  font-size: 62.5%;
+  @include respond(m) {
+    font-size: 56.25%;
+  }
+
+  @include respond(s) {
+    font-size: 50%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100vh;
+  background: #fff;
+}
+
+#root:not(:empty) + .loader {
+  display: none;
+}

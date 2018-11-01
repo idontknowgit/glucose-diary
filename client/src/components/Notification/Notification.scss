@@ -1,0 +1,44 @@
+@import "style/_variables.scss";
+@import "style/_animations.scss";
+
+.notification {
+  position: relative;
+  width: 100%;
+  max-width: 50rem;
+  box-shadow: $box-shadow;
+  padding: 1.5rem 2rem;
+  border-radius: $border-radius;
+  background: $color-fg-light;
+  animation: fade-in 0.3s ease-in;
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-bottom: 0.5rem;
+
+    svg {
+      height: 3.2rem;
+      width: 3.2rem;
+      fill: currentColor !important;
+    }
+  }
+
+  &__type {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+
+  &__content {
+    padding-top: 1rem;
+    text-align: center;
+    color: $color-text;
+  }
+}

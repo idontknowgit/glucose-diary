@@ -1,0 +1,29 @@
+{
+  "name": "glucose-diary-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "SET NODE_ENV=test&& nodemon --exec \"jasmine --config=tests/jasmine.json\"",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "express": "^4.16.4",
+    "helmet": "^3.14.0",
+    "mongoose": "^5.3.6"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0",
+    "jasmine": "^3.3.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.4"
+  }
+}

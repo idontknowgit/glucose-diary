@@ -1,0 +1,30 @@
+@import "style/_variables.scss";
+@import "style/_animations.scss";
+
+.main-wrapper {
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
+}
+
+.request-loader {
+  background: $color-fg-light;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9998;
+  animation: fade-in 0.3s ease-in;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+}
+
+.errors {
+  position: fixed;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 50rem;
+}

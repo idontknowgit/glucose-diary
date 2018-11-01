@@ -1,0 +1,22 @@
+$color-primary: orangered;
+$color-primary-dark: darken($color-primary, 5%);
+$color-primary-light: lighten($color-primary, 5%);
+$color-secondary: #000;
+$color-tertiary: #000;
+
+$color-bg-dark: #212121;
+$color-bg-light: #fff;
+
+$color-fg-dark: #212121;
+$color-fg-light: #fff;
+
+$color-danger: #dc3545;
+$color-success: #28a745;
+
+$color-text: #888888;
+$color-text-light: #fff;
+$color-text-dark: #212121;
+
+$border-radius: 3px;
+$box-shadow: 0 0.5rem 1.5rem -0.5rem rgba(#000, 0.15);
+$transition-speed: 0.3s;
