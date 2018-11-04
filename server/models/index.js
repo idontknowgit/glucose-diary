@@ -13,3 +13,7 @@ if (process.env.NODE_ENV !== "test") {
     .once("open", () => console.log("db connected"))
     .on("error", err => console.log("Error connecting to db:", err));
 }
+
+module.exports = {
+  User: require("./User")
+};
