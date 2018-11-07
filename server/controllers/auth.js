@@ -15,7 +15,7 @@ exports.register = async (req, res, next) => {
       });
     }
 
-    const user = await new User({ email, password }).save();
+    const user = await User.create({ email, password });
 
     res.json({ data: user.toAuthJSON() });
   } catch (err) {

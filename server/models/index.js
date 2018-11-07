@@ -15,5 +15,6 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 module.exports = {
-  User: require("./User")
+  User: require("./User"),
+  BGReading: require("./BGReading")
 };
