@@ -5,7 +5,7 @@ import createSagaMiddleware from "redux-saga";
 
 import rootReducer from "./reducers";
 import rootSaga from "./sagas";
-import { LOAD_APP } from "./constants";
+import { loadApp } from "./actions/app";
 
 export const history = createHistory();
 const sagaMiddleware = createSagaMiddleware();
@@ -29,7 +29,7 @@ const configureStore = () => {
   );
 
   sagaMiddleware.run(rootSaga);
-  store.dispatch({ type: LOAD_APP });
+  store.dispatch(loadApp());
 
   return store;
 };

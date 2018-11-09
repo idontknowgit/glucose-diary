@@ -1,5 +1,6 @@
 import reducer, { initialState, createLoadingSelector } from "../app";
 import { APP_READY, REMOVE_ERROR } from "../../constants";
+import createAction from "../../actions";
 
 describe("app reducer", () => {
   const TODO = "FETCH_TODOS";
