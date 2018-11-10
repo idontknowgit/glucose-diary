@@ -1,25 +1,8 @@
-import { all, take, put } from "redux-saga/effects";
-import { delay } from "redux-saga";
+import { all } from "redux-saga/effects";
 
-import { getAuthToken } from "modules/auth";
-import authSaga, { refreshSession } from "./auth";
-import { LOAD_APP } from "../constants";
-import { appReady } from "../actions/app";
+import initialLoad from "./initialLoad";
+import authSaga from "./auth";
 
 export default function* rootSaga() {
   yield all([initialLoad(), authSaga()]);
-}
-
-export function* initialLoad() {
-  const tasksBeforeLoad = [];
-
-  yield take(LOAD_APP);
-
-  if (getAuthToken()) {
-    tasksBeforeLoad.push(refreshSession);
-  }
-
-  yield all(tasksBeforeLoad.map(task => task()));
-  //yield delay(2000);
-  yield put(appReady());
 }

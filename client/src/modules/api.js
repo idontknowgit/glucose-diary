@@ -20,13 +20,3 @@ instance.interceptors.request.use(config => {
 });
 
 export default instance;
-
-export const apiError = err => {
-  let result;
-
-  if (err.response) {
-    result = err.response.data.error;
-  }
-
-  return result || { message: "Oops, something is broken." };
-};

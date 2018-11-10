@@ -1,11 +1,19 @@
 import createAction from "./index";
-import { LOGIN, LOGOUT } from "../constants";
+import { CALL_API, LOGIN, LOGOUT } from "../constants";
 
-export const login = {
-  request: (userInfo, isRegistering = false) =>
-    createAction(LOGIN.request, userInfo, { isRegistering }),
-  success: user => createAction(LOGIN.success, user),
-  failure: error => createAction(LOGIN.failure, error)
+export const login = (userInfo, isRegistering) => {
+  let endpoint = "/api/auth";
+
+  if (isRegistering) {
+    endpoint += "/register";
+  }
+
+  return createAction(CALL_API, {
+    requestTypes: LOGIN,
+    method: "post",
+    endpoint,
+    body: userInfo
+  });
 };
 
 export const logout = () => createAction(LOGOUT);

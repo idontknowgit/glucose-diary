@@ -1,6 +1,7 @@
 export const LOAD_APP = "LOAD_APP";
 export const APP_READY = "APP_READY";
 
+export const CALL_API = "CALL_API";
 export const REMOVE_ERROR = "REMOVE_ERROR";
 
 export const LOGIN = createRequestTypes("LOGIN");
