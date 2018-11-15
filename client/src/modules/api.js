@@ -20,3 +20,15 @@ instance.interceptors.request.use(config => {
 });
 
 export default instance;
+
+export const createQueryURL = (endpoint, query = {}) => {
+  const keys = Object.keys(query);
+
+  if (keys.length) {
+    const esc = encodeURIComponent;
+    endpoint += "?";
+    endpoint += keys.map(key => esc(key) + "=" + esc(query[key])).join("&");
+  }
+
+  return endpoint;
+};

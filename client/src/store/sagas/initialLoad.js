@@ -1,4 +1,4 @@
-import { put, take } from "redux-saga/effects";
+import { all, put, take } from "redux-saga/effects";
 
 import { refreshSession } from "./auth";
 import { LOAD_APP } from "../constants";
@@ -11,7 +11,8 @@ export default function* initialLoad() {
   yield take(LOAD_APP);
 
   if (getAuthToken()) {
-    tasksBeforeLoad.push(refreshSession);
+    const refreshAuthSession = refreshSession.bind(null, true);
+    tasksBeforeLoad.push(refreshAuthSession);
   }
 
   yield all(tasksBeforeLoad.map(task => task()));

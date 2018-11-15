@@ -22,7 +22,7 @@ body {
   box-sizing: border-box;
   position: relative;
   min-height: 100vh;
-  background: #fff;
+  background: $color-bg-dark;
 }
 
 #root:not(:empty) + .loader {

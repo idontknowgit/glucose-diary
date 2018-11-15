@@ -17,7 +17,7 @@ const Button = props => {
 };
 
 Button.propTypes = {
-  styleType: PropTypes.oneOf(["primary", "secondary"]),
+  styleType: PropTypes.oneOf(["primary", "secondary", "inverted"]),
   fluid: PropTypes.bool
 };
 

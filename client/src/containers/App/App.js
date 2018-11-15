@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Switch, Route } from "react-router-dom";
 import uuid from "uuid/v4";
 import PropTypes from "prop-types";
 
+import Header from "containers/Header";
+import AuthRoute from "containers/AuthRoute";
+import HomePage from "components/HomePage";
+import AuthPage from "containers/AuthPage";
 import Loader from "components/Loader";
 import Notification from "components/Notification";
 import { removeError } from "store/actions/app";
@@ -47,13 +51,24 @@ class App extends Component {
 
     return (
       <div className="main-wrapper">
+        <Header />
         <Loader coverContent loading={!appReady} size="6rem" />
         <Loader
           loading={appReady && requestPending}
           className="request-loader"
         />
         {this.renderErrors()}
-        Hello World
+        <main>
+          <Switch>
+            <AuthRoute
+              guestRoute
+              path="/signup"
+              render={props => <AuthPage {...props} registering />}
+            />
+            <AuthRoute guestRoute path="/login" component={AuthPage} />
+            <Route path="/" component={HomePage} />
+          </Switch>
+        </main>
       </div>
     );
   }

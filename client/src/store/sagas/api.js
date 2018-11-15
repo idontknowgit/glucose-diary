@@ -5,7 +5,7 @@ import createAction from "../actions";
 import api from "modules/api";
 
 export default function* apiSaga() {
-  takeEvery(CALL_API, apiWorker);
+  yield takeEvery(CALL_API, apiWorker);
 }
 
 export function* apiWorker(action) {

@@ -1,0 +1,30 @@
+@import "style/_variables.scss";
+
+.header {
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-bottom: 1px solid rgba(#fff, 0.1);
+  /*
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 25%;
+    height: 2px;
+    background: $color-secondary;
+  }*/
+  &__content {
+    height: 7.4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__brand {
+    font-size: 2.8rem;
+    color: #fff;
+    margin-right: auto;
+  }
+}

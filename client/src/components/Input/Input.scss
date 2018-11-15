@@ -1,0 +1,40 @@
+@import "style/_variables.scss";
+
+.input {
+  display: flex;
+  flex-direction: column;
+  height: 5rem;
+  cursor: text;
+  background: #fff;
+  padding: 1.5rem;
+  overflow: hidden;
+  border-radius: $border-radius;
+
+  &:focus-within,
+  &--with-value {
+    .input__placeholder {
+      font-size: 1.2rem;
+    }
+
+    .input__value {
+      height: 90%;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__placeholder {
+    font-size: 1.4rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    transition: all $transition-speed;
+  }
+
+  &__value {
+    outline: none;
+    border: none;
+    height: 0;
+    transition: all $transition-speed;
+    background: transparent;
+  }
+}

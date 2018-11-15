@@ -3,14 +3,25 @@
   width: 100%;
   max-width: 140rem;
   padding: 0 2.4rem;
+
+  &--small {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 50rem;
+    padding: 0 2.4rem;
+  }
 }
 
 .close {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 1rem;
+  padding: 0 1rem;
   font-size: 2.4rem;
   color: $color-text;
   cursor: pointer;
+}
+
+.fluid {
+  width: 100%;
 }
