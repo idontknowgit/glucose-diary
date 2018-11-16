@@ -13,23 +13,6 @@ import { login } from "store/actions/auth";
 import { LOGIN } from "store/constants";
 
 class AuthPage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.fields = [
-      { name: "email", type: "text", placeholder: "Email" },
-      { name: "password", type: "password", placeholder: "Password" }
-    ];
-
-    if (props.registering) {
-      this.fields.push({
-        name: "confirmPassword",
-        type: "password",
-        placeholder: "Confirm password"
-      });
-    }
-  }
-
   static propTypes = {
     registering: PropTypes.bool,
     authenticated: PropTypes.bool.isRequired,
@@ -52,6 +35,18 @@ class AuthPage extends Component {
 
   render() {
     const { registering, handleSubmit } = this.props;
+    const fields = [
+      { name: "email", type: "text", placeholder: "Email" },
+      { name: "password", type: "password", placeholder: "Password" }
+    ];
+
+    if (registering) {
+      fields.push({
+        name: "confirmPassword",
+        type: "password",
+        placeholder: "Confirm password"
+      });
+    }
 
     return (
       <div className="auth-page">
@@ -61,7 +56,7 @@ class AuthPage extends Component {
               {registering ? "Sign up" : "Login"}
             </h2>
             <form className="auth-form__form">
-              {this.fields.map(field => (
+              {fields.map(field => (
                 <ReduxFormField key={field.name} {...field} />
               ))}
               <Button type="submit" fluid>

@@ -50,7 +50,7 @@ class App extends Component {
     const { appReady, requestPending } = this.props;
 
     return (
-      <div className="main-wrapper">
+      <div id="main-wrapper" className="main-wrapper">
         <Header />
         <Loader coverContent loading={!appReady} size="6rem" />
         <Loader
@@ -58,6 +58,7 @@ class App extends Component {
           className="request-loader"
         />
         {this.renderErrors()}
+
         <main>
           <Switch>
             <AuthRoute

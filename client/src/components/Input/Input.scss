@@ -5,7 +5,8 @@
   flex-direction: column;
   height: 5rem;
   cursor: text;
-  background: #fff;
+  background: transparent;
+  border: 1px solid $color-border-light;
   padding: 1.5rem;
   overflow: hidden;
   border-radius: $border-radius;
@@ -14,6 +15,7 @@
   &--with-value {
     .input__placeholder {
       font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
 
     .input__value {
@@ -36,5 +38,7 @@
     height: 0;
     transition: all $transition-speed;
     background: transparent;
+    color: #fff;
+    padding-left: 0.5rem;
   }
 }
