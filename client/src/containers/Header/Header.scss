@@ -5,7 +5,8 @@
   width: 100%;
   left: 0;
   top: 0;
-  border-bottom: 1px solid rgba(#fff, 0.1);
+
+  background: $color-fg-dark;
   /*
   &::after {
     content: "";
@@ -17,7 +18,7 @@
     background: $color-secondary;
   }*/
   &__content {
-    height: 7.4rem;
+    height: 6rem;
     display: flex;
     align-items: center;
   }

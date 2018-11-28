@@ -9,7 +9,8 @@ const AuthRoute = props => {
   const { authenticated, guestRoute, ...routeProps } = props;
 
   if (!guestRoute && !authenticated) {
-    return <Redirect to="/" />;
+    console.log("REDIRECTING");
+    return <Redirect to="/login" />;
   }
 
   if (guestRoute && authenticated) {

@@ -17,10 +17,10 @@ class Header extends Component {
     const linkClassName = "header__link";
     let items = [];
 
-    if (this.props.authenticated) {
+    if (authenticated) {
       items = [
         ...items,
-        <a className={linkClassName} onClick={logout}>
+        <a key="logout" className={linkClassName} onClick={logout}>
           Log out
         </a>
       ];

@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("mongoose").model("User");
 
 exports.requireAuth = async (req, res, next) => {
-  const error = { statusCode: 401, message: "You are not authorized" };
+  const error = { code: 401, message: "You are not authorized" };
   try {
     const { _id } = jwt.verify(getTokenFromHeader(req), process.env.JWT_SECRET);
     const user = await User.findById(_id);
@@ -20,7 +20,7 @@ exports.requireAuth = async (req, res, next) => {
 
 exports.ensureCorrectUser = (req, res, next) => {
   if (res.locals.user._id.toString() !== req.params.user_id) {
-    return next({ statusCode: 401, message: "You are not authorized" });
+    return next({ code: 401, message: "You are not authorized" });
   }
 
   next();

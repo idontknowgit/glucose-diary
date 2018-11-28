@@ -1,13 +1,16 @@
 const BGReading = require("mongoose").model("BGReading");
+const { startOfTimePeriod } = require("../modules/date");
 
 exports.get = async (req, res, next) => {
   try {
     const { query } = req;
     query.user_id = res.locals.user._id;
 
-    if (query.fromDate) {
-      query.dateTaken = { $gte: new Date(query.fromDate) };
-      delete query.fromDate;
+    if (query.timePeriod) {
+      query.dateTaken = {
+        $gte: startOfTimePeriod(query.timePeriod)
+      };
+      delete query.timePeriod;
     }
 
     const readings = await BGReading.find(query);

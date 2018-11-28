@@ -4,12 +4,14 @@ import { reducer as form } from "redux-form";
 
 import app from "./app";
 import auth from "./auth";
+import bGReadings from "./bGReadings";
 
 const rootReducer = combineReducers({
   router,
   app,
   auth,
-  form
+  form,
+  bGReadings
 });
 
 export default rootReducer;

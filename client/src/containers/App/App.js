@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 
 import Header from "containers/Header";
 import AuthRoute from "containers/AuthRoute";
+import Dashboard from "containers/Dashboard";
 import HomePage from "components/HomePage";
 import AuthPage from "containers/AuthPage";
 import Loader from "components/Loader";
@@ -67,6 +68,7 @@ class App extends Component {
               render={props => <AuthPage {...props} registering />}
             />
             <AuthRoute guestRoute path="/login" component={AuthPage} />
+            <AuthRoute path="/dashboard" component={Dashboard} />
             <Route path="/" component={HomePage} />
           </Switch>
         </main>

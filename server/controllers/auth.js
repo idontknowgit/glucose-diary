@@ -10,7 +10,7 @@ exports.register = async (req, res, next) => {
       })) !== 0
     ) {
       return next({
-        statusCode: 403,
+        code: 403,
         message: "This email is already in use."
       });
     }
@@ -26,7 +26,7 @@ exports.register = async (req, res, next) => {
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const error = { statusCode: 401, message: "Invalid email or password." };
+    const error = { code: 401, message: "Invalid email or password." };
 
     if (!email || !password) {
       return next(error);

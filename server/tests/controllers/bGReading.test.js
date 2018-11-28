@@ -23,19 +23,18 @@ describe("auth controller", () => {
   describe("get", () => {
     it("gets users readings based on query parameters", async () => {
       const docs = [];
-      const fromDate = new Date().toISOString();
+      const timePeriod = "1d";
       req.query = {
-        fromDate
+        timePeriod
       };
 
       spyOn(BGReading, "find").and.returnValue(docs);
 
       await controller.get(req, res, next);
 
-      expect(BGReading.find).toHaveBeenCalledWith({
-        user_id,
-        dateTaken: { $gte: new Date(fromDate) }
-      });
+      const findArgs = BGReading.find.calls.mostRecent().args;
+      expect(findArgs[0].user_id).toEqual(user_id);
+      expect(findArgs[0].dateTaken.$gte).toEqual(jasmine.any(Date));
       expect(res.json).toHaveBeenCalledWith({ data: docs });
     });
   });
